@@ -35,6 +35,10 @@ RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated
 WORKDIR /orcaslicer
 ADD get_release_info.sh /orcaslicer
 
+# Setup OBSStudio
+RUN add-apt-repository ppa:obsproject/obs-studio
+RUN apt install obs-studio
+
 RUN mkdir -p /orcaslicer/orcaslicer-dist
 RUN chmod +x /orcaslicer/get_release_info.sh
 
